@@ -1,6 +1,5 @@
 import bot from './assets/bot.svg';
 import user from './assets/user.svg';
-import { fetch } from 'cross-fetch';
 
 
 const form = document.querySelector('form');
@@ -23,14 +22,14 @@ function loader(element) {
 }
 
 function typeText(element, text) {
-    let index = 0
+    let index = 0;
 
     let interval = setInterval(() => {
         if (index < text.length) {
-            element.innerHTML += text.charAt(index)
-            index++
+            element.innerHTML += text.charAt(index);
+            index++;
         } else {
-            clearInterval(interval)
+            clearInterval(interval);
         }
     }, 20)
 }

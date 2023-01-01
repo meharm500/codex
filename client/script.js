@@ -64,15 +64,15 @@ function chatStripe(isAi, value, uniqueId) {
 }
 
 const handleSubmit = async (e) => {
-    e.preventDefault()
+    e.preventDefault();
 
-    const data = new FormData(form)
+    const data = new FormData(form);
 
     // user's chatstripe
-    chatContainer.innerHTML += chatStripe(false, data.get('prompt'))
+    chatContainer.innerHTML += chatStripe(false, data.get('prompt'));
 
     // to clear the textarea input 
-    form.reset()
+    form.reset();
 
     // bot's chatstripe
     const uniqueId = generateUniqueId();
@@ -85,7 +85,7 @@ const handleSubmit = async (e) => {
     const messageDiv = document.getElementById(uniqueId);
 
     // messageDiv.innerHTML = "..."
-    loader(messageDiv)
+    loader(messageDiv);
 
     const response = await fetch ("https://codex-l33z.onrender.com", {
         method: "POST",

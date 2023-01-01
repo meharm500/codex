@@ -87,15 +87,15 @@ const handleSubmit = async (e) => {
     // messageDiv.innerHTML = "..."
     loader(messageDiv);
 
-    const response = await fetch ("https://codex-l33z.onrender.com", {
-        method: "POST",
+    const response = await fetch ('https://codex-l33z.onrender.com', {
+        method: 'POST',
         headers: {
-            "Content-Type": "application/json",
+            'Content-Type': 'application/json',
         },
         body: JSON.stringify({
             prompt: data.get('prompt')
         })
-    });
+    })
 
 
     clearInterval(loadInterval);
@@ -103,14 +103,15 @@ const handleSubmit = async (e) => {
 
     if (response.ok) {
         const data = await response.json();
-        const parsedData = data.bot.trim(); // trims any trailing spaces/'\n' 
+        const parsedData = data.bot.trim();
 
         typeText(messageDiv, parsedData);
     } else {
         const err = await response.text();
 
         messageDiv.innerHTML = "Something went wrong";
-        alert(err)
+        
+        alert(err);
     }
 }
 
